@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Sandbox - Learn & Practice Docker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <svg class="docker-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.185m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.185m-2.963 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.185m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.186.186 0 00.185-.185V9.006a.185.185 0 00-.185-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.084.185.185.185m-2.929 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.268 15.5h-2.753a.766.766 0 00-.537.22l-1.002.996a.767.767 0 01-.54.222H7.645a.768.768 0 01-.54-.222l-1.003-.996a.766.766 0 00-.536-.22H2.813a.767.767 0 00-.54.222L.22 17.775a.768.768 0 00-.22.54v3.373c0 .423.343.766.767.766h21.695a.768.768 0 00.767-.767v-4.69c0-.423-.344-.767-.767-.767z"/>
+            </svg>
+            <span>Docker Sandbox</span>
+        </div>
+        <div class="nav-links">
+            <a href="#learn">Learn</a>
+            <a href="#practice">Practice</a>
+            <a href="#challenges">Challenges</a>
+            <a href="#reference">Reference</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Master Docker Through Practice</h1>
+            <p>Interactive Docker learning environment with real-time terminal simulation, challenges, and hands-on exercises</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('practice').scrollIntoView({behavior: 'smooth'})">Start Practicing</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('learn').scrollIntoView({behavior: 'smooth'})">Learn Basics</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Learn Section -->
+        <section id="learn" class="section">
+            <h2>Learn Docker Fundamentals</h2>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="basics">Basics</button>
+                <button class="tab-btn" data-tab="images">Images</button>
+                <button class="tab-btn" data-tab="containers">Containers</button>
+                <button class="tab-btn" data-tab="networking">Networking</button>
+                <button class="tab-btn" data-tab="volumes">Volumes</button>
+                <button class="tab-btn" data-tab="dockerfile">Dockerfile</button>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="basics">
+                    <div class="lesson-card">
+                        <h3>What is Docker?</h3>
+                        <p>Docker is a platform for developing, shipping, and running applications in containers. Containers package up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.</p>
+                        <div class="key-concepts">
+                            <h4>Key Concepts:</h4>
+                            <ul>
+                                <li><strong>Container:</strong> A lightweight, standalone executable package</li>
+                                <li><strong>Image:</strong> A read-only template used to create containers</li>
+                                <li><strong>Dockerfile:</strong> A text file with instructions to build an image</li>
+                                <li><strong>Registry:</strong> A repository for storing Docker images</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="images">
+                    <div class="lesson-card">
+                        <h3>Docker Images</h3>
+                        <p>Images are the building blocks of Docker. They contain the application code, libraries, and dependencies needed to run your application.</p>
+                        <div class="code-example">
+                            <pre><code># Pull an image from Docker Hub
+docker pull nginx:latest
+
+# List all images
+docker images
+
+# Remove an image
+docker rmi &lt;image-id&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="containers">
+                    <div class="lesson-card">
+                        <h3>Docker Containers</h3>
+                        <p>Containers are running instances of Docker images. They are isolated environments that run your applications.</p>
+                        <div class="code-example">
+                            <pre><code># Run a container
+docker run -d -p 80:80 nginx
+
+# List running containers
+docker ps
+
+# Stop a container
+docker stop &lt;container-id&gt;
+
+# Remove a container
+docker rm &lt;container-id&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="networking">
+                    <div class="lesson-card">
+                        <h3>Docker Networking</h3>
+                        <p>Docker networking allows containers to communicate with each other and the outside world.</p>
+                        <div class="code-example">
+                            <pre><code># Create a network
+docker network create my-network
+
+# List networks
+docker network ls
+
+# Run container on specific network
+docker run --network my-network nginx</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="volumes">
+                    <div class="lesson-card">
+                        <h3>Docker Volumes</h3>
+                        <p>Volumes persist data generated by and used by Docker containers, independent of the container lifecycle.</p>
+                        <div class="code-example">
+                            <pre><code># Create a volume
+docker volume create my-volume
+
+# List volumes
+docker volume ls
+
+# Mount volume to container
+docker run -v my-volume:/data nginx</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="dockerfile">
+                    <div class="lesson-card">
+                        <h3>Dockerfile</h3>
+                        <p>A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.</p>
+                        <div class="code-example">
+                            <pre><code>FROM node:16-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section id="practice" class="section">
+            <h2>Interactive Terminal</h2>
+            <p class="section-desc">Practice Docker commands in our simulated terminal environment</p>
+            
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn red"></span>
+                        <span class="terminal-btn yellow"></span>
+                        <span class="terminal-btn green"></span>
+                    </div>
+                    <div class="terminal-title">docker@sandbox:~</div>
+                    <button class="btn-clear" onclick="clearTerminal()">Clear</button>
+                </div>
+                <div class="terminal-body" id="terminal">
+                    <div class="terminal-output">
+                        <div class="welcome-message">
+                            Welcome to Docker Sandbox Terminal!<br>
+                            Type 'help' to see available commands.<br>
+                            Try: <code>docker run hello-world</code><br>
+                        </div>
+                    </div>
+                    <div class="terminal-input-line">
+                        <span class="prompt">docker@sandbox:~$</span>
+                        <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" autofocus>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-commands">
+                <h4>Quick Commands:</h4>
+                <div class="command-chips">
+                    <button class="chip" onclick="runCommand('docker ps')">docker ps</button>
+                    <button class="chip" onclick="runCommand('docker images')">docker images</button>
+                    <button class="chip" onclick="runCommand('docker run -d nginx')">docker run -d nginx</button>
+                    <button class="chip" onclick="runCommand('docker network ls')">docker network ls</button>
+                    <button class="chip" onclick="runCommand('docker volume ls')">docker volume ls</button>
+                    <button class="chip" onclick="runCommand('docker info')">docker info</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenges Section -->
+        <section id="challenges" class="section">
+            <h2>Hands-On Challenges</h2>
+            <p class="section-desc">Test your Docker skills with interactive challenges</p>
+
+            <div class="challenges-grid">
+                <div class="challenge-card" data-level="beginner">
+                    <div class="challenge-header">
+                        <span class="level-badge beginner">Beginner</span>
+                        <span class="points">10 pts</span>
+                    </div>
+                    <h3>Run Your First Container</h3>
+                    <p>Run an nginx container in detached mode on port 80</p>
+                    <div class="challenge-hint">
+                        <strong>Hint:</strong> Use <code>docker run -d -p 80:80 nginx</code>
+                    </div>
+                    <button class="btn btn-challenge" onclick="startChallenge('challenge1')">Start Challenge</button>
+                </div>
+
+                <div class="challenge-card" data-level="beginner">
+                    <div class="challenge-header">
+                        <span class="level-badge beginner">Beginner</span>
+                        <span class="points">15 pts</span>
+                    </div>
+                    <h3>Create a Custom Network</h3>
+                    <p>Create a bridge network named 'my-app-network'</p>
+                    <div class="challenge-hint">
+                        <strong>Hint:</strong> Use <code>docker network create my-app-network</code>
+                    </div>
+                    <button class="btn btn-challenge" onclick="startChallenge('challenge2')">Start Challenge</button>
+                </div>
+
+                <div class="challenge-card" data-level="intermediate">
+                    <div class="challenge-header">
+                        <span class="level-badge intermediate">Intermediate</span>
+                        <span class="points">25 pts</span>
+                    </div>
+                    <h3>Multi-Container Setup</h3>
+                    <p>Run nginx and redis containers on the same network</p>
+                    <div class="challenge-hint">
+                        <strong>Hint:</strong> Create network first, then run both containers with --network flag
+                    </div>
+                    <button class="btn btn-challenge" onclick="startChallenge('challenge3')">Start Challenge</button>
+                </div>
+
+                <div class="challenge-card" data-level="intermediate">
+                    <div class="challenge-header">
+                        <span class="level-badge intermediate">Intermediate</span>
+                        <span class="points">30 pts</span>
+                    </div>
+                    <h3>Persistent Data with Volumes</h3>
+                    <p>Create a volume and mount it to a container</p>
+                    <div class="challenge-hint">
+                        <strong>Hint:</strong> Use <code>docker volume create</code> and <code>-v</code> flag
+                    </div>
+                    <button class="btn btn-challenge" onclick="startChallenge('challenge4')">Start Challenge</button>
+                </div>
+
+                <div class="challenge-card" data-level="advanced">
+                    <div class="challenge-header">
+                        <span class="level-badge advanced">Advanced</span>
+                        <span class="points">50 pts</span>
+                    </div>
+                    <h3>Build from Dockerfile</h3>
+                    <p>Create a Dockerfile and build a custom image</p>
+                    <div class="challenge-hint">
+                        <strong>Hint:</strong> Use FROM, WORKDIR, COPY, and CMD instructions
+                    </div>
+                    <button class="btn btn-challenge" onclick="startChallenge('challenge5')">Start Challenge</button>
+                </div>
+
+                <div class="challenge-card" data-level="advanced">
+                    <div class="challenge-header">
+                        <span class="level-badge advanced">Advanced</span>
+                        <span class="points">60 pts</span>
+                    </div>
+                    <h3>Container Orchestration</h3>
+                    <p>Set up multiple containers with proper networking and health checks</p>
+                    <div class="challenge-hint">
+                        <strong>Hint:</strong> Combine networks, volumes, and health check flags
+                    </div>
+                    <button class="btn btn-challenge" onclick="startChallenge('challenge6')">Start Challenge</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reference Section -->
+        <section id="reference" class="section">
+            <h2>Command Reference</h2>
+            <div class="reference-grid">
+                <div class="reference-card">
+                    <h3>Container Management</h3>
+                    <table class="reference-table">
+                        <tr>
+                            <td><code>docker run</code></td>
+                            <td>Create and run a container</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker ps</code></td>
+                            <td>List running containers</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker stop</code></td>
+                            <td>Stop a running container</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker start</code></td>
+                            <td>Start a stopped container</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker rm</code></td>
+                            <td>Remove a container</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker exec</code></td>
+                            <td>Execute command in running container</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker logs</code></td>
+                            <td>View container logs</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="reference-card">
+                    <h3>Image Management</h3>
+                    <table class="reference-table">
+                        <tr>
+                            <td><code>docker images</code></td>
+                            <td>List all images</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker pull</code></td>
+                            <td>Download an image</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker build</code></td>
+                            <td>Build image from Dockerfile</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker push</code></td>
+                            <td>Upload image to registry</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker rmi</code></td>
+                            <td>Remove an image</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker tag</code></td>
+                            <td>Tag an image</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="reference-card">
+                    <h3>Network & Storage</h3>
+                    <table class="reference-table">
+                        <tr>
+                            <td><code>docker network create</code></td>
+                            <td>Create a network</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker network ls</code></td>
+                            <td>List networks</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker volume create</code></td>
+                            <td>Create a volume</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker volume ls</code></td>
+                            <td>List volumes</td>
+                        </tr>
+                        <tr>
+                            <td><code>docker inspect</code></td>
+                            <td>Get detailed information</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="reference-card">
+                    <h3>Common Flags</h3>
+                    <table class="reference-table">
+                        <tr>
+                            <td><code>-d</code></td>
+                            <td>Detached mode (background)</td>
+                        </tr>
+                        <tr>
+                            <td><code>-p</code></td>
+                            <td>Port mapping</td>
+                        </tr>
+                        <tr>
+                            <td><code>-v</code></td>
+                            <td>Volume mount</td>
+                        </tr>
+                        <tr>
+                            <td><code>--name</code></td>
+                            <td>Container name</td>
+                        </tr>
+                        <tr>
+                            <td><code>--network</code></td>
+                            <td>Connect to network</td>
+                        </tr>
+                        <tr>
+                            <td><code>-it</code></td>
+                            <td>Interactive terminal</td>
+                        </tr>
+                        <tr>
+                            <td><code>--rm</code></td>
+                            <td>Auto-remove after exit</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Tracker -->
+        <section class="section progress-section">
+            <h2>Your Progress</h2>
+            <div class="progress-stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="total-points">0</div>
+                    <div class="stat-label">Total Points</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="challenges-completed">0/6</div>
+                    <div class="stat-label">Challenges Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="commands-run">0</div>
+                    <div class="stat-label">Commands Run</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="skill-level">Beginner</div>
+                    <div class="stat-label">Skill Level</div>
+                </div>
+            </div>
+            <button class="btn btn-reset" onclick="resetProgress()">Reset Progress</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Docker Sandbox - Learn Docker Interactively</p>
+            <p class="disclaimer">This is a learning simulation. For production use, install Docker Desktop or use Docker Engine.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
